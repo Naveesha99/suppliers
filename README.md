@@ -41,6 +41,8 @@ The Supplier Products System allows users to manage supplier information and ass
    git clone https://github.com/Naveesha99/suppliers.git
    cd suppliers/Arctiq
 
+## Screenshot
+![Supplier Management System](images/product.png)
 
 ###
 
