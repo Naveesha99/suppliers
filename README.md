@@ -43,7 +43,7 @@ The Supplier Products System allows users to manage supplier information and ass
 
 ## Screenshot
 ![Suppliers](images/supplier.png)
-![addSupliers](images/addSuplier.png)
+![addSuplier](images/addSupplier.png)
 ![Products](images/product.png)
 ![addProduct](images/addProduct.png)
 
