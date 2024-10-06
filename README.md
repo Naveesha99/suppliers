@@ -42,7 +42,10 @@ The Supplier Products System allows users to manage supplier information and ass
    cd suppliers/Arctiq
 
 ## Screenshot
-![Supplier Management System](images/product.png)
+![Suppliers](images/supplier.png)
+![addSupliers](images/addSuplier.png)
+![Products](images/product.png)
+![addProduct](images/addProduct.png)
 
 ###
 
