@@ -198,6 +198,14 @@ table > tbody > tr > td {
     text-decoration: none;
 }
 
+.search{
+    border-color: #5b08a7;
+    border-radius: 5px;
+    margin-top: 15px;
+    width: 30%;
+    height: 40px;
+}
+
 /* Login/Signup form */
 
 

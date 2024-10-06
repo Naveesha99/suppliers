@@ -7,9 +7,10 @@ export default function Suppliers() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1); // Current page state
   const [totalPages, setTotalPages] = useState(0); // Total pages state
+  const [searchQuery, setSearchQuery] = useState(''); // Search query state
 
   useEffect(() => {
-    getSuppliers(currentPage); // Fetch suppliers based on the current page
+    getSuppliers(currentPage); // Fetch suppliers based on current page
   }, [currentPage]);
 
   const onDeleteClick = supplier => {
@@ -18,7 +19,7 @@ export default function Suppliers() {
     }
     axiosClient.delete(`/suppliers/${supplier.id}`)
       .then(() => {
-        getSuppliers(currentPage);
+        getSuppliers(currentPage); // Fetch suppliers again after deletion
       });
   };
 
@@ -39,11 +40,31 @@ export default function Suppliers() {
     setCurrentPage(newPage); // Set the new page and fetch data for that page
   };
 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value); // Update the search query state
+    setCurrentPage(1); // Reset to the first page when a new search is made
+  };
+
+  // Filter suppliers based on the search query
+  const filteredSuppliers = suppliers.filter(u => 
+    u.supplierName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    u.phone.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div>
       <div style={{display: 'flex', justifyContent: "space-between", alignItems: "center"}}>
         <h1>Suppliers</h1>
         <Link className="btn-add" to="/supplier">Add new</Link>
+      </div>
+      {/* Search Box */}
+      <div style={{ marginBottom: '20px' }}>
+        <input className='search'
+          type="text"
+          placeholder="Search by name or phone"
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
       </div>
       <div className="card animated fadeInDown">
         <table>
@@ -67,7 +88,7 @@ export default function Suppliers() {
           }
           {!loading &&
             <tbody>
-            {suppliers.map(u => (
+            {filteredSuppliers.map(u => ( // Use filtered suppliers instead of all suppliers
               <tr key={u.id}>
                 <td>{u.id}</td>
                 <td>{u.supplierName}</td>

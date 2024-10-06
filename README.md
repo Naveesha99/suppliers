@@ -40,3 +40,8 @@ The Supplier Products System allows users to manage supplier information and ass
    ```bash
    git clone https://github.com/Naveesha99/suppliers.git
    cd suppliers/Arctiq
+
+
+###
+
+Only supplier ID 23 and 23 already added products
